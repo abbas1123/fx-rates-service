@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValCurs Date="03.07.2026" Name="AZN məzənnələri">
+    <ValType Type="Xarici valyutalar">
+        <Valute Code="USD">
+            <Nominal>1</Nominal>
+            <Name>1 ABŞ dolları</Name>
+            <Value>1.7000</Value>
+        </Valute>
+        <Valute Code="EUR">
+            <Nominal>1</Nominal>
+            <Name>1 Avro</Name>
+            <Value>1.9800</Value>
+        </Valute>
+        <Valute Code="JPY">
+            <Nominal>100</Nominal>
+            <Name>100 Yapon yeni</Name>
+            <Value>1.1500</Value>
+        </Valute>
+        <Valute Code="GBP">
+            <Nominal>1</Nominal>
+            <Name>1 İngilis funt sterlinqi</Name>
+            <Value>2.3100</Value>
+        </Valute>
+    </ValType>
+    <ValType Type="Bank metalları">
+        <Valute Code="XAU">
+            <Nominal>1</Nominal>
+            <Name>1 unsiya qızıl</Name>
+            <Value>5600.1234</Value>
+        </Valute>
+    </ValType>
+</ValCurs>

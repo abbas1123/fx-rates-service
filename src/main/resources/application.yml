@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: fx-rates-service
+
+  cache:
+    type: caffeine
+    cache-names: rates
+    caffeine:
+      spec: expireAfterWrite=30m,maximumSize=10
+
+cbar:
+  base-url: https://www.cbar.az
+
+resilience4j:
+  retry:
+    instances:
+      cbar:
+        max-attempts: 3
+        wait-duration: 500ms
+  circuitbreaker:
+    instances:
+      cbar:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8082
+
+logging:
+  level:
+    io.github.abbas1123.fxrates: INFO
