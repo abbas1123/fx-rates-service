@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -36,9 +38,13 @@ class RatesControllerTest {
 
     @BeforeEach
     void setUp() {
+        // Force the JSON converter: jackson-dataformat-xml on the classpath would
+        // otherwise win content negotiation in the standalone setup.
         mockMvc = MockMvcBuilders
                 .standaloneSetup(new RatesController(ratesService, conversionService))
                 .setControllerAdvice(new GlobalExceptionHandler())
+                .setMessageConverters(new MappingJackson2HttpMessageConverter(
+                        Jackson2ObjectMapperBuilder.json().build()))
                 .build();
     }
 
